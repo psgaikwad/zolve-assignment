@@ -1,13 +1,17 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import {getAllProducts} from '../../actions'
+import {getData} from '../../actions'
 import layoutWrapper from '../layout/layoutWrapper'
 import Visualization from './Visualization'
 
+const mapStateToProps = state => ({
+  items: state.items
+})
+
 const mapDispatchToProps = (dispatch)=>{
     return{
-        getAllProducts: ()=>{dispatch(getAllProducts())}
+			getData: ()=>{dispatch(getData())}
     }
 }
     
-export default connect(null, mapDispatchToProps)(layoutWrapper(Visualization, {headerText: 'Zolve'}))
+export default connect(mapStateToProps, mapDispatchToProps)(layoutWrapper(Visualization, {headerText: 'Zolve'}))

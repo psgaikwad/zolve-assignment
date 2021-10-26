@@ -2,12 +2,12 @@ import React from 'react'
 import { AppBar, Toolbar, Typography } from '@material-ui/core'
 import { Menu } from '@material-ui/icons/'
 
-const AppFooter = () => {
+const AppFooter = ({ showFooter }) => {
 	return(
 	
 			<React.Fragment>
 					{/* app footer  */}
-							{this.props.showFooter && 
+							{showFooter && 
 							<div className="app-footer">
 									App Footer
 							</div>

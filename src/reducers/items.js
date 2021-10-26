@@ -11,7 +11,7 @@ const items = (state = {}, action) => {
 			const { data } = action.payload;
       return {
         ...state,
-				items: data,
+				data: data.items,
 				isFetching: false
       }
 		}

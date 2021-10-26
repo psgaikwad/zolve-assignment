@@ -4,4 +4,10 @@ export default {
 			.then(resp => resp.json())
 			.then((data) => callback(data))
     },
+
+		getFilteredData: (query, callback) => {
+      fetch(`https://api.stackexchange.com/${query}`)
+			.then(resp => resp.json())
+			.then((data) => callback(data))
+    },
 }
