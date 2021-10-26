@@ -1,0 +1,10 @@
+@mixin sideMenuIcon($url){
+    background: url($url);
+    background-size: contain;  
+    background-repeat: no-repeat; 
+}
+
+@mixin overrideAnchorStyle {
+    color: inherit;
+    text-decoration: none;
+}

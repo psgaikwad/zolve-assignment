@@ -1,0 +1,83 @@
+/* Global styles - DO NOT CHANGE unless and until absolutely necessary*/
+
+@import './colors.scss';
+@import './mixins.scss';
+
+body{
+    font-family: ProximaNova,Arial,Helvetica Neue,sans-serif;
+    letter-spacing: 0;
+    margin: 0;
+}
+
+.app-header{
+    .app-header-text{
+        padding-left: 20px; 
+    }
+
+    .app-header-link{
+        color: inherit;
+        text-decoration: none;
+    }
+}
+
+#close-button {
+	position: absolute !important;
+	right: 10px;
+}
+
+.app-menu-user{
+    background-color: $secondary-color;
+    height: 20vh;
+
+    .user-avatar{
+        position: absolute;
+        left: 10%;
+        top: 5%;
+
+        > a{
+            @include overrideAnchorStyle();
+        }
+    }
+
+    .user-greeting-text{
+        color: white;
+        padding: 10px;
+        position: absolute;
+        top: 10%;
+        left: 5%;
+    }
+
+    .login-button{
+        position: absolute;
+        left: 20px;
+        top: 15%;
+        color: white;
+        font-size: 16px;
+        outline: none;
+    }
+}
+
+.app-menu-items{
+    width: 65vw;
+    max-width: 400px;
+    list-style-type: none;
+    padding-left: 25px;
+
+    .app-menu-item {
+        height: 35px;
+        // @include sideMenuIcon('/assets/images/homeIcon.png');
+        > a{
+            @include overrideAnchorStyle();
+            // padding-left: 40px;
+            line-height: 35px;
+        }
+    }
+}
+
+
+.app-footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
