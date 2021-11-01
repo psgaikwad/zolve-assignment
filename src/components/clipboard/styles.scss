@@ -1,0 +1,33 @@
+.clipboard-page {
+	padding: 24px;
+}
+
+.copied-text {
+	margin: 24px 0 !important;
+	display: flex;
+	align-items: center;
+
+	.copied-text-content {
+		background-color: #eee;
+		border: 1px solid #dedede;
+		padding: 12px;
+		border-radius: 4px;
+		margin-left: 12px;
+		height: 30px;
+    line-height: 30px;
+	}
+}
+
+.input-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	.copy-icon {
+		margin-left: 12px;
+		border: 1px solid #dedede;
+		border-radius: 8px;
+		padding: 12px;
+		cursor: pointer;
+	}
+}

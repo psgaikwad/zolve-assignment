@@ -25,8 +25,8 @@ export default class RouterOutlet extends React.PureComponent{
         return(
             <React.Fragment>
                 <Route path="/" exact component={Visualization}/>
-								<Route path="/clipboard" component={ClipBoard}/>
-                <Route path="/selfie" component={Selfie}/>
+								<Route path="/clipboard" exact component={ClipBoard}/>
+                <Route path="/selfie" exact component={Selfie}/>
             </React.Fragment>
         )
     }

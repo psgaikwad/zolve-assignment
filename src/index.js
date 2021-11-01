@@ -11,8 +11,6 @@ if (window.SERVER_RENDER){
 
 parser(<Main />, document.getElementById('root'));
 
-swManager.register()
-
 let deferredPrompt = null
 
 window.addEventListener('beforeinstallprompt', (e)=>{

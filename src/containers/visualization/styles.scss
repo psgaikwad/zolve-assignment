@@ -2,6 +2,10 @@
 	margin: 12px;
 }
 
+.input-label {
+	margin-bottom: 12px;
+}
+
 .inputs-grid {
 	margin: 24px 0;
 	display: grid;
@@ -11,4 +15,11 @@
 .query-section {
 	display: flex;
 	align-items: 'center';
+}
+
+.query-results {
+	margin: 20px 0;
+    border: 1px solid #dedede;
+    background: #EEE;
+    padding: 12px;
 }

@@ -1,0 +1,49 @@
+.selfie-page {
+	display: flex;
+	flex-direction: column;
+	height: calc(100vh - 60px);
+
+	.selfie-page-controls {
+		display: grid;
+    align-items: center;
+    justify-content: space-between;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2%;
+    margin: 20px 0;
+	}
+
+	.media {
+		display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2%;
+
+		@media screen and (max-width: 640px){
+			display: flex;
+			flex-direction: column;
+		}
+
+	}
+
+	.error-div {
+		display: flex;
+		align-items: center;
+		margin: 12px;
+		align-self: center;
+
+		.error-text {
+			color: #fd3752;
+		}
+	}
+
+	.selfie-portrait {
+		text-align: center;
+		align-self: center;
+	}
+
+	.camera-stream {
+		height: 100%;
+		width: 100%;
+		background-color: black;
+		align-self: center;
+	}
+}

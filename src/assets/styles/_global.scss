@@ -14,10 +14,42 @@ body{
         padding-left: 20px; 
     }
 
+		.app-header-menu-link  {
+			text-decoration: none;
+			color: #131d38;
+			font-weight: 400;
+			margin: 0 12px;
+
+			&:hover {
+				transform: scale(1.05);
+			}
+
+			&.selected {
+				font-weight: 600;
+			}
+		}
+
     .app-header-link{
         color: inherit;
         text-decoration: none;
     }
+
+		.menu-container {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+
+			&.margin {
+				margin-left: 24px;
+			}
+		}
+
+		.app-header-container {
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+			width: 100%;
+		}
 }
 
 #close-button {

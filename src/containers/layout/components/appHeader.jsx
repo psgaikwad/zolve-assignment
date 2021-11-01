@@ -1,61 +1,74 @@
-import React from 'react'
-import { AppBar, Toolbar, Typography } from '@material-ui/core'
-import { Menu, ArrowBack} from '@material-ui/icons/'
-import { Link }  from 'react-router-dom'
+import React, { useState } from 'react'
+import { AppBar, Container, Toolbar, Typography } from '@material-ui/core'
+import { Menu, ArrowBack } from '@material-ui/icons/'
+import { Link } from 'react-router-dom'
 import SideMenu from './sideMenu'
+import { useHistory, withRouter } from "react-router-dom";
+import Logo from '../../../assets/icon.png';
+import NavButton from './navButton'
 
 const menuItems = [
-    {displayName: '3rd Party API & Visualization', link: '/'},
-    {displayName: 'Copy to clipboard', link: '/clipboard'},
-		{displayName: 'Selfie', link: '/selfie'},
+	{ id: 1, displayName: 'API Visualization', link: '/' },
+	{ id: 2, displayName: 'Copy to clipboard', link: '/clipboard' },
+	{ id: 3, displayName: 'Selfie', link: '/selfie' },
 ]
-    
-export default class AppHeader extends React.PureComponent{
-    constructor(props){
-        super(props);
 
-        this.state = {
-            open: false
-        }
-    }
+const AppHeader = ({
+	showBackArrow,
+}) => {
+	const history = useHistory();
+	const [open, setOpen] = useState(false);
+	const toggleMenu = () => {
+		setOpen(!open)
+	};
 
-    toggleMenu = () => {
-        this.setState({
-            open : !this.state.open
-        })
-    }
-
-    navigateBack = () => {
-        window.history.back()
-    }
-
-    render(){
-        return(
-            <React.Fragment>
-                {/* app header  */}
-                <AppBar position="static" className="app-header" color="#fff">
-                    <Toolbar variant="dense">
-												{!this.props.showBackArrow &&
-                            <Menu onClick={this.toggleMenu}/>
-                        }
-                        {this.props.showBackArrow &&
-                            <ArrowBack onClick={this.navigateBack}/>
-                        }
-                        <Typography variant="h6" className="app-header-text" sx={{ flexGrow: 1}}>
-                            { this.props.link ? (
-                                <Link to={link} className="app-header-link">{this.props.headerText?this.props.headerText:`Zolve`}</Link>
-                            ):(
-                                <div className="app-header-link">{this.props.headerText?this.props.headerText:`Zolve`}</div>
-                            )}
-                            
-                        </Typography>
-                        {!this.props.showBackArrow &&
-                            <SideMenu open = {this.state.open} handleClose={this.toggleMenu} menuItems={menuItems}/>
-                        }
-                    </Toolbar>
-                </AppBar>
-            </React.Fragment>
-        )
-    }
-
+	const navigateBack = () => {
+		history.goBack();
+	}
+	return (
+		<React.Fragment>
+			<AppBar position="static" className="app-header" color="secondary">
+				<Toolbar variant="dense">
+						<Container>
+							<div className="app-header-container">
+								<div className="menu-container">
+									{!showBackArrow &&
+										<Menu onClick={toggleMenu} />
+									}
+									{showBackArrow &&
+										<ArrowBack onClick={navigateBack} />
+									}
+									<Typography variant="h6" className="app-header-text" sx={{ flexGrow: 1 }}>
+										<Link to={'/'} className="app-header-link">
+											<img src={Logo} height={24} style={{ verticalAlign: 'text-bottom' }} />
+										</Link>
+									</Typography>
+								</div>
+								<div className="menu-container margin">
+									{menuItems.map(({id, displayName, link}) => {
+										return (
+											<NavButton
+												key={id}
+												text={displayName}
+												slug={link}
+												isSelected={location.pathname === link}
+											/>
+										);
+									})}
+								</div>
+								{!showBackArrow &&
+									<SideMenu
+										open={open}
+										handleClose={toggleMenu}
+										menuItems={menuItems}
+									/>
+								}
+							</div>
+						</Container>
+				</Toolbar>
+			</AppBar>
+		</React.Fragment>
+	)
 }
+
+export default withRouter(AppHeader);
